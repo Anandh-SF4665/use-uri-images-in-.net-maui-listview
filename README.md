@@ -1,42 +1,30 @@
-**[View document in Syncfusion .NET MAUI Knowledge Base](https://www.syncfusion.com/kb/13127/how-to-use-uri-images-in-net-maui-listview-sflistview)**
+# How to use URI images in .NET MAUI ListView?
 
-## Sample
+You can display URI images in [.NET MAUI ListView (SfListView)](https://www.syncfusion.com/maui-controls/maui-listview) by loading the image in the [ItemTemplate](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.ListView.SfListView.html#Syncfusion_Maui_ListView_SfListView_ItemTemplate).
 
-```xaml
-<ListView:SfListView x:Name="listView" ItemSize="60" ItemsSource="{Binding ContactsInfo}">
-    <ListView:SfListView.ItemTemplate >
-        <DataTemplate>
-            <Frame Padding="2" Margin="2" HasShadow="False" BorderColor="LightGray">
-                <Grid x:Name="grid" RowSpacing="0">
-                    <Image HeightRequest="50" WidthRequest="50" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFit">
-                        <Image.Source>
-                            <UriImageSource Uri="{Binding ContactImage}" CacheValidity="1" CachingEnabled="true"/>
-                        </Image.Source>
-                    </Image>
-                </Grid>
-            </Frame>
-        </DataTemplate>
-    </ListView:SfListView.ItemTemplate>
-</ListView:SfListView>
+Steps:
+1. Defining the ContactImage property as a string type in Model class.
+2. Set the image URI link to the ContactImage property when populating the items.
+3. Bind the ContactImage property to the Image.Source property as UriImageSource.
 
-ViewModel.cs:
 
-public ObservableCollection<Contacts> ContactsInfo { get; set; }
+![URI image in .NET MAUI SfListView](https://www.syncfusion.com/uploads/user/kb/maui/maui-1681/maui-1681_img1.png)
 
-public ContactsViewModel()
-{
-    ContactsInfo = new ObservableCollection<Contacts>();
-    GenerateInfo();
-}
+Download the
+complete sample on [GitHub](https://github.com/SyncfusionExamples/use-uri-images-in-.net-maui-listview "https://github.com/SyncfusionExamples/use-uri-images-in-.net-maui-listview").
 
-public void GenerateInfo()
-{
-    Random r = new Random();
-    for (int i = 0; i < 40; i++)
-    {
-        var contact = new Contacts(CustomerNames[i], r.Next(720, 799).ToString() + " - " + r.Next(3010, 3999).ToString());
-        contact.ContactImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png";
-        ContactsInfo.Add(contact);
-    }
-}
-```
+**Conclusion**
+
+I hope you enjoyed learning how to use URI images in .NET MAUI ListView
+(SfListView).
+
+You can refer to our [.NET MAUI ListView feature tour](https://www.syncfusion.com/maui-controls/maui-listview) page to learn about its other groundbreaking feature
+representations. Explore our [documentation](https://help.syncfusion.com/maui/listview/getting-started) to understand how to create and manipulate data.
+
+For current customers, check
+out our components from the [License and Downloads](https://www.syncfusion.com/sales/teamlicense) page. If you are new to Syncfusion®, try our
+30-day [free trial](https://www.syncfusion.com/downloads/maui)to
+check out our other controls.
+
+Please let us know in the comments section if you have any queries or require
+clarification. Contact us through our [support forums](https://www.syncfusion.com/forums), [Direct-Trac](https://support.syncfusion.com/create), or [feedback portal.](https://www.syncfusion.com/feedback/maui?control=sflistview) We are always happy to assist you!
